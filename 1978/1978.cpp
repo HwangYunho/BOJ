@@ -8,37 +8,31 @@
 
 #include <iostream>
 using namespace std;
-int a[1001];
-int main()
+bool is_prime(int x)
 {
-    ios_base::sync_with_stdio(false);
-    int c,n;
-    cin>>n;
-    for(int i=1;i<=n;i++)
-        cin>>a[i];
-    c=n;
-    for(int i=1;i<=n;i++)
-    {
-        if(a[i]==1)
-        {
-            c--;
-            continue;
-        }
-        else if(a[i]==2)
-            continue;
-        else
-        {
-            for(int j=2;j<a[i];j++)
-            {
-                if(a[i]%j==0)
-                {
-                    c--;
-                    break;
-                }
-            
-            }
+    if (x < 2) {
+        return false;
+    }
+    for (int i=2; i*i <= x; i++) {
+        if (x % i == 0) {
+            return false;
         }
     }
-    cout<<c<<"\n";
+    return true;
+}
+int main() {
+    int n;
+    cin >> n;
+    
+    int cnt = 0;
+    for (int i=0; i<n; i++) {
+        int num;
+        cin >> num;
+        if (is_prime(num)){
+            cnt += 1;
+        }
+    }
+    
+    cout << cnt << '\n';
     return 0;
 }
