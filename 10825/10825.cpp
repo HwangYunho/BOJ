@@ -2,7 +2,7 @@
 //  10825.cpp
 //  example
 //
-//  Created by hwangyunho on 2017. 10. 23..
+//  Created by hwangyunho on 2018. 06. 09..
 //  Copyright © 2017년 hwangyunho. All rights reserved.
 //
 
@@ -19,42 +19,34 @@ struct Student {
     int eng;
     int math;
 };
-
-bool compareS(Student a, Student b) {
-    if(a.kor > b.kor) {
-        return a.kor > b.kor;
+bool cmp(Student s1, Student s2) {
+    if(s1.kor==s2.kor && s1.eng==s2.eng && s1.math==s2.math) {
+        return s1.name<s2.name;
+    }   else if(s1.kor==s2.kor && s1.eng==s2.eng) {
+        return s1.math>s2.math;
+    } else if(s1.kor == s2.kor) {
+        return s1.eng<s2.eng;
+    }  else {
+        return s1.kor > s2.kor;
     }
-    else if(a.kor == b.kor) {
-        if(a.eng < b.eng) {
-            return a.eng < b.eng;
-        }else if(a.eng == b.eng)
-        {
-            if(a.math > b.math)
-            {
-                return a.math > b.math;
-            } else if(a.math == b. math) {
-                return a.name < b.name;
-            }
-        }
-    }
-    return false;
 }
 
 int main()
 {
     ios_base::sync_with_stdio(false);
     int n;
-    cin >> n;
+    cin>>n;
+    vector<Student> student(n);
     
-    vector<Student> s(n);
-    for(int i = 0; i < n; i++) {
-        cin >> s[i].name >> s[i]. kor >> s[i].eng >> s[i].math;
+    for(int i=0; i<n; i++) {
+        cin>> student[i].name >> student[i].kor >> student[i].eng >> student[i].math;
     }
     
-    sort(s.begin(), s.end(), compareS);
+    sort(student.begin(), student.end(), cmp);
     
-    for(auto p : s) {
-        cout<< p.name << "\n";
+    for(auto s : student) {
+        cout<<s.name<<"\n";
     }
+    
     return 0;
 }
