@@ -1,0 +1,22 @@
+* ds 사용
+
+- 헤더 include
+#include <stack>
+#include <queue>
+#include <deque>
+
+- ds 정의 후 사용
+stack<int> s
+queue<int> s
+deque<int> s
+이런식으로 사용
+
+- ds 함수
+s.push(10)
+s.pop()
+.
+.
+.
+
+* c++ string -> int, long, long long 변형
+- stoi, stol, stoll
