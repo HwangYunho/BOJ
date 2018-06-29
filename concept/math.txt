@@ -1,0 +1,8 @@
+* math note
+
+- 최대공약수(GCD Great Common Divisor)
+  : 유클리드 호제법을 이용하면 쉽게 구할 수 있음
+  : GCD = GCD(24,16) = GCD(16,8) = GCD(8,0) = 8
+
+- 최소공배수(LCM Least Common Multiple)
+  : LCM = G * (A/G) * (B/G) 
