@@ -1,38 +1,30 @@
 //
 //  11005.cpp
-//  example
+//  algorithm
 //
-//  Created by hwangyunho on 2017. 9. 4..
-//  Copyright © 2017년 hwangyunho. All rights reserved.
+//  Created by 황윤호 on 2018. 7. 1..
+//  Copyright © 2018년 황윤호. All rights reserved.
 //
 
-#include <stdio.h>
-int a[1000000];
+#include <iostream>
+#include <string.h>
+#include <algorithm>
+using namespace std;
+
 int main()
 {
-    int n, b,c=0;
-    scanf("%d%d", &n, &b);
-    while(1)
-    {
-        if(n/b>0)
-        {
-            a[c]=n%b;
-            n/=b;
-            c++;
-        }
+    int n, b;
+    string ans="";
+    cin >> n >> b;
+    
+    while(n>0) {
+        int temp = n%b;
+        if(temp < 10)
+            ans += temp + '0';
         else
-        {
-            a[c]=n;
-            c++;
-            break;
-        }
+            ans += temp - 10 + 'A';
+        n/=b;
     }
-    for(int i=c-1;i>=0;i--)
-    {
-        if(a[i]>=10)
-            printf("%c", a[i]+55);
-        else
-            printf("%d", a[i]);
-    }
-    return 0;
+    reverse(ans.begin(), ans.end());
+    cout<<ans;
 }
