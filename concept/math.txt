@@ -6,3 +6,9 @@
 
 - 최소공배수(LCM Least Common Multiple)
   : LCM = G * (A/G) * (B/G) 
+
+
+- 소수 (Prime number) 
+  : 약수가 1과 자기 자신 밖에 없는 수
+  : n이 소수가 되려면 2보가 크거나 같고, n-1보다 작거나 같은 자연수로 나누어 떨어지면 안됨
+  : n이 prime인지 확인 하려면 루트n 까지 검사하면 된다. i*i <=cd n
