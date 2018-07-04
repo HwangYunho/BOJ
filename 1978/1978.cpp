@@ -1,38 +1,38 @@
 //
 //  1978.cpp
-//  example
+//  algorithm
 //
-//  Created by hwangyunho on 2017. 9. 2..
-//  Copyright © 2017년 hwangyunho. All rights reserved.
+//  Created by 황윤호 on 2018. 7. 5..
+//  Copyright © 2018년 황윤호. All rights reserved.
 //
 
-#include <iostream>
-using namespace std;
-bool is_prime(int x)
-{
-    if (x < 2) {
+bool isPrime(int x) {
+    if(x<2) {
         return false;
     }
-    for (int i=2; i*i <= x; i++) {
-        if (x % i == 0) {
+    
+    for(int i=2; i*i <=x; i++) {
+        if(x%i==0)
             return false;
-        }
     }
     return true;
 }
-int main() {
-    int n;
-    cin >> n;
-    
-    int cnt = 0;
-    for (int i=0; i<n; i++) {
-        int num;
-        cin >> num;
-        if (is_prime(num)){
-            cnt += 1;
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n, tot=0;
+    cin>>n;
+    while(n--)
+    {
+        int prime;
+        cin>>prime;
+        if(isPrime(prime)){
+            tot++;
         }
     }
-    
-    cout << cnt << '\n';
-    return 0;
+    cout << tot;
 }
