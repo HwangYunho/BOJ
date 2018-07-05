@@ -1,32 +1,30 @@
 //
 //  1929.cpp
-//  example
+//  algorithm
 //
-//  Created by hwangyunho on 2017. 9. 6..
-//  Copyright © 2017년 hwangyunho. All rights reserved.
+//  Created by 황윤호 on 2018. 7. 5..
+//  Copyright © 2018년 황윤호. All rights reserved.
 //
 
 #include <iostream>
 using namespace std;
-bool is_prime(int x)
+const int MAX = 1000000;
+bool check[MAX+1];
+
+int main()
 {
-    if (x < 2) {
-        return false;
-    }
-    for (int i=2; i*i <= x; i++) {
-        if (x % i == 0) {
-            return false;
+    check[0]=check[1]=true;
+    for(int i=2; i*i<=MAX; i++){
+        if(!check[i]){
+            for(int j=i+i; j<=MAX; j+=i)
+                check[j]=true;
         }
     }
-    return true;
-}
-int main() {
-    ios_base::sync_with_stdio(false);
-    int m,n;
-    cin >>m>>n;
-    for (int i=m; i<=n; i++) {
-        if (is_prime(i))
-            cout<<i<<'\n';
+    
+    int n, m;
+    cin>>n>>m;
+    for(int i=n;i<=m;i++){
+        if(!check[i])
+            cout<<i<<"\n";
     }
-    return 0;
 }
